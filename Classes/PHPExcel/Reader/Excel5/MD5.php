@@ -57,21 +57,22 @@ class PHPExcel_Reader_Excel5_MD5
      *
      * @return string
      */
-    public function getContext()
-    {
-        $s = '';
-        foreach (array('a', 'b', 'c', 'd') as $i) {
-            $v = $this->[$i];
-            $s .= chr($v & 0xff);
-            $s .= chr(($v >> 8) & 0xff);
-            $s .= chr(($v >> 16) & 0xff);
-            $s .= chr(($v >> 24) & 0xff);
-        }
+	public function getContext()
+	{
+		$s = '';
+		foreach (array('a', 'b', 'c', 'd') as $i) {
+			$v = $this->$i;
+			$s .= chr($v & 0xff);
+			$s .= chr(($v >> 8) & 0xff);
+			$s .= chr(($v >> 16) & 0xff);
+			$s .= chr(($v >> 24) & 0xff);
+		}
 
-        return $s;
-    }
+		return $s;
+	}
 
-    /**
+
+	/**
      * Add data to context
      *
      * @param string $data Data to add
